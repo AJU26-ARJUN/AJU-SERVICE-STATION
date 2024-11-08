@@ -1,0 +1,107 @@
+#include <stdio.h>
+
+#include <string.h>
+
+#define MAX VEHICLES 100
+
+typedef struct {
+
+char ownerName [50];
+
+char ownerAddress [100];
+
+char vehicleModel [50];
+
+char licensePlate [20];
+
+char serviceType [100];
+
+char licenseExpiryDate[20]:
+
+} Vehicle;
+
+void inputVehicleDetails (Vehicle *vehicle) {
+
+printf("Enter Owner Name: ");
+
+fgets(vehicle->ownerName, sizeof(vehicle->ownerName), stdin);
+
+vehicle->ownerName [strcspn(vehicle->ownerName, "\n")] = '\0'; // Remove trailing
+
+newline
+
+printf("Enter Owner Address: ");
+
+fgets(vehicle->ownerAddress, sizeof(vehicle->ownerAddress), stdin);
+
+vehicle->ownerAddress [strcspn(vehicle->ownerAddress, "\n")] = '\0';
+
+printf("Enter Vehicle Model: ");
+
+fgets(vehicle->vehicleModel, sizeof(vehicle->vehicleModel), stdin);
+
+vehicle->vehicleModel [strcspn(vehicle->vehicleModel, "\n")] = '\0';
+
+printf("Enter License Plate: ");
+
+fgets(vehicle->licensePlate, sizeof(vehicle->licensePlate), stdin);
+
+vehicle->licensePlate [strcspn(vehicle->licensePlate, "\n")] = '\0';
+
+printf("Enter Service Type (e.g.. Oil Change, Tire Replacement): ");
+
+fgets(vehicle->serviceType, sizeof(vehicle->serviceType), stdin);
+
+vehicle->serviceType[strcspn(vehicle->serviceType, "\n")] '\0';
+
+printf("Enter License Expiry Date (e.g., 2024-12-31): ");
+
+fgets(vehicle->licenseExpiry Date, sizeof(vehicle->license ExpiryDate), stdin); vehicle->licenseExpiryDate [strcspn(vehicle->licenseExpiryDate, "\n")] = '\0';
+
+}
+
+void printVehicleDetails(const Vehicle *vehicle) {
+
+printf("\nOwner Name: %s\n", vehicle->ownerName);
+
+printf("Owner Address: %s\n", vehicle->ownerAddress);
+
+printf("Vehicle Model: %s\n", vehicle->vehicleModel);
+
+printf("License Plate: %s\n", vehicle->licensePlate);
+
+printf("Service Type: %s\n", vehicle->serviceType);
+
+printf("License Expiry Date: %s\n", vehicle->licenseExpiry Date);
+
+}
+
+int main() {
+
+Vehicle vehicles [MAX_VEHICLES];
+
+int vehicleCount = 0;
+
+char choice;
+printf("Maximum vehicle limit reached.\n");
+
+break:
+
+}
+
+printf("\nEnter details for vehicle %d:\n", vehicleCount 1); inputVehicleDetails(&vehicles [vehicleCount]);
+
+vehicleCount++;
+
+printf("Do you want to add another vehicle? (y/n): ");
+
+scanf("%c", &choice); getchar(); // Consume newline character left in buffer
+
+} while (choice 'y' || choice == 'Y');
+
+printf("\nEntered vehicle details:\n"); for (int i=0; i vehicleCount; i++) { printVehicleDetails(&vehicles[i]);
+
+}
+
+return 0;
+}
